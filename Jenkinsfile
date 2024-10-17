@@ -22,9 +22,9 @@ pipeline {
                 script {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                         bat '''
-                        docker stop api-gateway || true
-                        docker rm api-gateway || true
-                        docker rmi -f api-gateway:latest || true
+                        docker stop api-gateway-sr || true
+                        docker rm api-gateway-sr || true
+                        docker rmi -f api-gateway-sr:latest || true
                         '''
                     }
                 }
@@ -57,8 +57,8 @@ pipeline {
                 script {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                         bat '''
-                        docker build -t api-gateway:latest .
-                        docker run -d --network my-network -p 9090:9090 --name api-gateway api-gateway:latest
+                        docker build -t api-gateway-sr:latest .
+                        docker run -d --network my-network -p 9090:9090 --name api-gateway-sr api-gateway-sr:latest
                         '''
                     }
                 }
