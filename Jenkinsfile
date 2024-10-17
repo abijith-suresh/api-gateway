@@ -44,7 +44,7 @@ pipeline {
                 // Build and run the Docker container
                 bat '''
                 docker build -t api-gateway:latest .
-                docker run -d --network my-network -p 9095:9095 --name api-gateway api-gateway:latest
+                docker run -d --network my-network -p 9090:9090 --name api-gateway api-gateway:latest
                 '''
             }
         }
