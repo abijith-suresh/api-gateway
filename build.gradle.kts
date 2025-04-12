@@ -26,6 +26,8 @@ dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-gateway-mvc")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 	implementation("de.codecentric:spring-boot-admin-starter-client")
+	implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+	compileOnly("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

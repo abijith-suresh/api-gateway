@@ -12,6 +12,21 @@ spring:
           enabled: true
           lower-case-service-id: true
 
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=2
+
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/users/**
+          filters:
+            - StripPrefix=2
+
   management:
     endpoints:
       web:
@@ -20,6 +35,13 @@ spring:
     endpoint:
       health:
         show-details: ALWAYS
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
 
 eureka:
   client:
@@ -31,4 +53,3 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-    appname: api-gateway

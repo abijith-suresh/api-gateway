@@ -1,4 +1,4 @@
-package sh.abijith.api_gateway;
+package sh.abijith.apigateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
